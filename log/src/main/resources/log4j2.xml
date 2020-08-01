@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF">
+    <Properties>
+        <Property name="rootLevel">INFO</Property>
+<!--        <Property name="everyFileSize">1024MB</Property>-->
+        <Property name="logPattern">[%-p] [%d{yyyy.MM.dd HH:mm:ss.SSS}] [${sys:local-ip}] [%X{traceId}] [%t] [%c:%L] - %m%n</Property>
+<!--        <Property name="logFilePath">logs</Property>-->
+<!--        <Property name="logBackUpPath">logs/back</Property>-->
+<!--        <Property name="logFileName">lending-web</Property>-->
+    </Properties>
+    <Appenders>
+        <Console name="ConsolePrint" target="SYSTEM_OUT">
+            <PatternLayout charset="UTF-8" pattern="${logPattern}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="${rootLevel}" includeLocation="true">
+            <Appender-ref level="INFO" ref="ConsolePrint"/>
+        </Root>
+    </Loggers>
+</Configuration>
