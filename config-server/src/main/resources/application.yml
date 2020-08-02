@@ -1,0 +1,29 @@
+spring:
+  profiles:
+     active: jdbc
+  application:
+     name: config-jdbc-server
+  datasource:
+     url: jdbc:mysql://127.0.0.1:3306/config-jdbc?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&serverTimezone=GMT%2B8
+     username: root
+     password:
+     driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+     config:
+       label: master
+       server:
+         jdbc: true
+
+
+eureka:
+  client:
+    serviceUrl:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://localhost:9001/eureka/eureka
+  instance:
+    preferIpAddress: true
+
+server:
+  port: 8769
+spring.cloud.config.server.jdbc.sql: SELECT key1, value1 from config_properties where APPLICATION=? and PROFILE=? and LABEL=?

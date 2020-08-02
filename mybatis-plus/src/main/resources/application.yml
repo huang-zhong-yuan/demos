@@ -22,3 +22,6 @@ spring:
           hikari:
             maxPoolSize: 5
             connectionTimeout: 60000
+
+server:
+  port: 9002
